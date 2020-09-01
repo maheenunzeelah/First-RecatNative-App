@@ -25,6 +25,7 @@ export default class App extends React.Component {
      })  
   }
   render() {
+  console.log("hello1")
     const placesOutput=this.state.places.map(place=>(
       <Text>{place}</Text>
     ))
@@ -35,6 +36,7 @@ export default class App extends React.Component {
           <Button title="Add" style={styles.placeButton} onPress={this.handleSubmit}/>
         </View>
         <View>
+          
           {placesOutput}
         </View>
         <StatusBar style="auto" />
