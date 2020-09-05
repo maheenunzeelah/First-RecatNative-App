@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import PlaceOutput from './src/component/PlaceOutput/PlaceOutput';
+import PlaceItem from './src/component/PlaceItem/PlaceItem';
 
 export default class App extends React.Component {
   state = {
@@ -8,6 +10,7 @@ export default class App extends React.Component {
     places:[]
   }
   handleChange = (val) => {
+    
     this.setState({
       input: val
     })
@@ -25,27 +28,22 @@ export default class App extends React.Component {
      })  
   }
   render() {
-  console.log("hello1")
-    const placesOutput=this.state.places.map(place=>(
-      <Text>{place}</Text>
-    ))
+  
+   
     return (
       <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <TextInput style={styles.placeInput} placeholder="Name" onChangeText={this.handleChange} value={this.state.input} />
-          <Button title="Add" style={styles.placeButton} onPress={this.handleSubmit}/>
-        </View>
-        <View>
-          
-          {placesOutput}
-        </View>
-        <StatusBar style="auto" />
+       
+       <PlaceItem handleSubmit={this.handleSubmit} handleChange={this.handleChange} input={this.state.input} />
+       <View style={styles.listContainer}>
+       <PlaceOutput places={this.state.places}/>
+       </View>
       </View>
     );
   }
 
-}
+  
 
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -54,18 +52,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start'
   },
-  inputContainer:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    width:'100%'
-
-  },
-  placeInput:{
-    width:'70%',
-    marginRight:2
-  },
-  placeButton:{
-   width:'30%'
+  listContainer:{
+    width:"100%",
+    
   }
-});
+})
