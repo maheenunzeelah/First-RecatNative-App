@@ -4,7 +4,7 @@ import {StyleSheet, Text, View, TextInput, Button} from 'react-native';
 const PlaceItem=(props)=>(
  <View style={styles.inputContainer}>
  <TextInput style={styles.placeInput} placeholder="Name" onChangeText={props.handleChange} value={props.input} />
- <Button title="Add" style={styles.placeButton} onPress={props.handleSubmit}/>
+ <Button title="Add" style={styles.placeButton} onPress={props.handleAddPlace}/>
 </View>
 )
 

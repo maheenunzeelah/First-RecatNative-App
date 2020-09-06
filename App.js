@@ -18,7 +18,7 @@ export default class App extends React.Component {
       input: val
     })
   }
-  handleSubmit = () => {
+  handleAddPlace = () => {
 
     if (this.state.input.trim() === '') {
       return
@@ -71,7 +71,7 @@ export default class App extends React.Component {
           onItemDeleted={this.ItemDeleted}
           onModalClosed={this.modalClose}
         />
-        <PlaceItem handleSubmit={this.handleSubmit}
+        <PlaceItem handleSubmit={this.handleAddPlace}
           handleChange={this.handleChange}
           input={this.state.input} />
 
