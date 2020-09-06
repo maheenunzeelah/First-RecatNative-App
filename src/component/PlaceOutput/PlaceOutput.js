@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button ,ScrollView,FlatList} from 'r
 import ListItem from '../ListItem/ListItem'
 
 const PlaceOutput = (props) => {
-   
+    console.log('placeoutput'+props.places)
     return <FlatList 
     data={props.places}
     renderItem={(info)=>{
